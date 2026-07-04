@@ -138,9 +138,9 @@ import { ButtonComponent } from '../../shared/components/button.component';
       font-weight: 600;
       padding: 0.25rem 0.75rem;
       border-radius: 2rem;
-      background: rgba(59, 130, 246, 0.1);
+      background: rgba(var(--primary-color-rgb), 0.1);
       color: var(--primary-color);
-      border: 1px solid rgba(59, 130, 246, 0.2);
+      border: 1px solid rgba(var(--primary-color-rgb), 0.2);
     }
     
     @media (max-width: 768px) {

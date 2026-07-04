@@ -27,11 +27,11 @@ import { CommonModule } from '@angular/common';
     .primary {
       background-color: var(--primary-color);
       color: #fff;
-      box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.39);
+      box-shadow: 0 4px 14px 0 rgba(var(--primary-color-rgb), 0.39);
     }
     .primary:hover {
-      background-color: #2563EB;
-      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.23);
+      filter: brightness(0.9);
+      box-shadow: 0 6px 20px rgba(var(--primary-color-rgb), 0.23);
       transform: translateY(-2px);
     }
     
@@ -53,7 +53,7 @@ import { CommonModule } from '@angular/common';
     }
     .outline-gradient:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.2);
+      box-shadow: 0 4px 14px 0 rgba(var(--secondary-color-rgb), 0.2);
     }
 
     .full-width {

@@ -69,7 +69,7 @@ import { SkillsDataService, Skill } from '../../core/data/skills.data';
       width: 64px;
       height: 64px;
       border-radius: 1rem;
-      background: rgba(59, 130, 246, 0.1);
+      background: rgba(var(--primary-color-rgb), 0.1);
       display: flex;
       align-items: center;
       justify-content: center;

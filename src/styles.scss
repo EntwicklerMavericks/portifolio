@@ -1,15 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Color Palette */
-  --bg-primary: #0F172A;
-  --bg-secondary: #111827;
+  /* Padrão (Azul com Roxo) */
   --primary-color: #3B82F6;
   --secondary-color: #8B5CF6;
+  --primary-color-rgb: 59, 130, 246;
+  --secondary-color-rgb: 139, 92, 246;
+  
+  --bg-primary: #0F172A;
+  --bg-secondary: #111827;
+  --glass-bg: rgba(17, 24, 39, 0.6);
+  
+  /* Text and Border Colors */
   --text-primary: #FFFFFF;
   --text-secondary: #9CA3AF;
   --border-color: rgba(255, 255, 255, 0.1);
-  --glass-bg: rgba(17, 24, 39, 0.6);
   
   /* Layout */
   --max-width: 1200px;
@@ -22,6 +27,53 @@
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s ease;
+}
+
+body.theme-blue {
+  --primary-color: #3B82F6;
+  --secondary-color: #8B5CF6;
+  --primary-color-rgb: 59, 130, 246;
+  --secondary-color-rgb: 139, 92, 246;
+  
+  --bg-primary: #0F172A;
+  --bg-secondary: #111827;
+  --glass-bg: rgba(17, 24, 39, 0.6);
+}
+
+body.theme-pink {
+  --primary-color: #F472B6; 
+  --secondary-color: #9F1239; 
+  --primary-color-rgb: 244, 114, 182;
+  --secondary-color-rgb: 159, 18, 57;
+  
+  /* Fundo avermelhado escuro para acompanhar o tema rosa */
+  --bg-primary: #1F1017;
+  --bg-secondary: #140A0F;
+  --glass-bg: rgba(20, 10, 15, 0.6);
+}
+
+body.theme-orange {
+  --primary-color: #F97316; 
+  --secondary-color: #EAB308; 
+  --primary-color-rgb: 249, 115, 22;
+  --secondary-color-rgb: 234, 179, 8;
+  
+  /* Fundo terroso/marrom escuro para o tema laranja */
+  --bg-primary: #1E1510;
+  --bg-secondary: #140E0A;
+  --glass-bg: rgba(20, 14, 10, 0.6);
+}
+
+body.theme-red {
+  --primary-color: #EF4444; 
+  --secondary-color: #A855F7; 
+  --primary-color-rgb: 239, 68, 68;
+  --secondary-color-rgb: 168, 85, 247;
+  
+  /* Fundo rubi/roxo profundo escuro para o tema vermelho e roxo */
+  --bg-primary: #1A1016;
+  --bg-secondary: #110A0E;
+  --glass-bg: rgba(17, 10, 14, 0.6);
 }
 
 /* Reset & Base Styles */

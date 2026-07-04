@@ -7,6 +7,7 @@ import { ProjectsComponent } from './features/projects/projects.component';
 import { TimelineComponent } from './features/timeline/timeline.component';
 import { ContactComponent } from './features/contact/contact.component';
 import { FooterComponent } from './shared/components/footer.component';
+import { ThemePickerComponent } from './shared/components/theme-picker.component';
 
 @Component({
   selector: 'app-root',
@@ -19,10 +20,12 @@ import { FooterComponent } from './shared/components/footer.component';
     ProjectsComponent, 
     TimelineComponent, 
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    ThemePickerComponent
   ],
   template: `
     <main class="app-container">
+      <app-theme-picker></app-theme-picker>
       <app-hero></app-hero>
       <app-about></app-about>
       <app-skills></app-skills>

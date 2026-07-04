@@ -61,7 +61,7 @@ import { TimelineDataService, TimelineEvent } from '../../core/data/timeline.dat
       background: var(--bg-primary);
       border: 3px solid var(--primary-color);
       transform: translateX(-1px);
-      box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+      box-shadow: 0 0 10px rgba(var(--primary-color-rgb), 0.5);
       z-index: 1;
       transition: all var(--transition-normal);
     }
