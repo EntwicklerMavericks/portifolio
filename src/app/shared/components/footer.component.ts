@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -17,11 +17,12 @@ import { Component } from '@angular/core';
       text-align: center;
       background-color: var(--bg-primary);
     }
-    
+
     .footer-content p {
       color: var(--text-secondary);
       font-size: 0.9rem;
     }
-  `]
+  `],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent {}

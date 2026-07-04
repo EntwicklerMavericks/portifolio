@@ -1,14 +1,5 @@
 import { Injectable } from '@angular/core';
-
-export interface Project {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  technologies: string[];
-  demoUrl?: string;
-  githubUrl?: string;
-}
+import { Project } from '../models';
 
 @Injectable({
   providedIn: 'root'

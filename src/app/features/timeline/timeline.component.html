@@ -1,0 +1,16 @@
+<section class="section timeline-section" id="timeline" aria-label="Minha Trajetória Profissional">
+  <div class="container">
+    <h2 class="section-title">Minha Trajetória</h2>
+
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let event of events; trackBy: trackByYear">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content glass-panel">
+          <div class="timeline-year">{{ event.year }}</div>
+          <h3 class="timeline-role">{{ event.role }}</h3>
+          <p class="timeline-description">{{ event.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

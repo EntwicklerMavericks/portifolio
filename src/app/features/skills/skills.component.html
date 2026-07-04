@@ -1,0 +1,15 @@
+<section class="section skills-section" id="skills" aria-label="Tecnologias e Ferramentas">
+  <div class="container">
+    <h2 class="section-title">Tecnologias e Ferramentas</h2>
+
+    <div class="skills-grid">
+      <div class="skill-card glass-panel" *ngFor="let skill of skills; trackBy: trackByName">
+        <div class="skill-icon-wrapper">
+          <i [class]="'ph ' + skill.icon + ' skill-icon'"></i>
+        </div>
+        <h4 class="skill-name">{{ skill.name }}</h4>
+        <p class="skill-description">{{ skill.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>

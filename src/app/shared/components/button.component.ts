@@ -1,14 +1,12 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-button',
   standalone: true,
-  imports: [CommonModule],
   template: `
-    <button 
+    <button
       [class]="'btn ' + variant + ' ' + (fullWidth ? 'full-width' : '')"
-      (click)="onClick.emit($event)">
+      (click)="clicked.emit($event)">
       <ng-content></ng-content>
     </button>
   `,
@@ -23,7 +21,7 @@ import { CommonModule } from '@angular/common';
       font-weight: 600;
       transition: all var(--transition-normal);
     }
-    
+
     .primary {
       background-color: var(--primary-color);
       color: #fff;
@@ -34,7 +32,7 @@ import { CommonModule } from '@angular/common';
       box-shadow: 0 6px 20px rgba(var(--primary-color-rgb), 0.23);
       transform: translateY(-2px);
     }
-    
+
     .secondary {
       background-color: transparent;
       color: var(--text-primary);
@@ -44,7 +42,7 @@ import { CommonModule } from '@angular/common';
       border-color: var(--text-primary);
       background-color: rgba(255, 255, 255, 0.05);
     }
-    
+
     .outline-gradient {
       background: linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
                   linear-gradient(135deg, var(--primary-color), var(--secondary-color)) border-box;
@@ -59,10 +57,11 @@ import { CommonModule } from '@angular/common';
     .full-width {
       width: 100%;
     }
-  `]
+  `],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonComponent {
   @Input() variant: 'primary' | 'secondary' | 'outline-gradient' = 'primary';
-  @Input() fullWidth: boolean = false;
-  @Output() onClick = new EventEmitter<MouseEvent>();
+  @Input() fullWidth = false;
+  @Output() clicked = new EventEmitter<MouseEvent>();
 }

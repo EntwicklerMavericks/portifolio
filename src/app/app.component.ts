@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HeroComponent } from './features/hero/hero.component';
 import { AboutComponent } from './features/about/about.component';
 import { SkillsComponent } from './features/skills/skills.component';
@@ -13,17 +12,17 @@ import { ThemePickerComponent } from './shared/components/theme-picker.component
   selector: 'app-root',
   standalone: true,
   imports: [
-    CommonModule, 
-    HeroComponent, 
-    AboutComponent, 
-    SkillsComponent, 
-    ProjectsComponent, 
-    TimelineComponent, 
+    HeroComponent,
+    AboutComponent,
+    SkillsComponent,
+    ProjectsComponent,
+    TimelineComponent,
     ContactComponent,
     FooterComponent,
     ThemePickerComponent
   ],
   template: `
+    <a class="skip-link" href="#about">Pular para o conteúdo</a>
     <main class="app-container">
       <app-theme-picker></app-theme-picker>
       <app-hero></app-hero>
@@ -41,8 +40,23 @@ import { ThemePickerComponent } from './shared/components/theme-picker.component
       flex-direction: column;
       overflow-x: hidden;
     }
-  `]
+
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 0;
+      background: var(--primary-color);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      z-index: 9999;
+      font-weight: 600;
+      border-radius: 0 0 0.5rem 0;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+  `],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {
-  title = 'portifolio';
-}
+export class AppComponent {}

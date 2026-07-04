@@ -1,36 +1,38 @@
-import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
+import { Injectable, Renderer2, RendererFactory2, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 export type Theme = 'theme-blue' | 'theme-pink' | 'theme-orange' | 'theme-red';
+
+const VALID_THEMES: readonly Theme[] = ['theme-blue', 'theme-pink', 'theme-orange', 'theme-red'] as const;
+const STORAGE_KEY = 'app-theme';
+const DEFAULT_THEME: Theme = 'theme-blue';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThemeService {
-  private renderer: Renderer2;
-  private currentTheme: Theme = 'theme-blue';
+  private readonly renderer: Renderer2;
+  private currentTheme: Theme = DEFAULT_THEME;
 
-  constructor(rendererFactory: RendererFactory2) {
+  constructor(
+    rendererFactory: RendererFactory2,
+    @Inject(DOCUMENT) private readonly document: Document
+  ) {
     this.renderer = rendererFactory.createRenderer(null, null);
-    
-    // Recupera o tema do localStorage se existir
-    const savedTheme = localStorage.getItem('app-theme') as Theme;
-    if (savedTheme) {
-      this.setTheme(savedTheme);
+
+    const savedTheme = localStorage.getItem(STORAGE_KEY);
+    if (savedTheme && VALID_THEMES.includes(savedTheme as Theme)) {
+      this.setTheme(savedTheme as Theme);
     } else {
-      this.setTheme('theme-blue');
+      this.setTheme(DEFAULT_THEME);
     }
   }
 
-  setTheme(theme: Theme) {
-    // Remove o tema atual
-    this.renderer.removeClass(document.body, this.currentTheme);
-    
-    // Adiciona o novo tema
+  setTheme(theme: Theme): void {
+    this.renderer.removeClass(this.document.body, this.currentTheme);
     this.currentTheme = theme;
-    this.renderer.addClass(document.body, this.currentTheme);
-    
-    // Salva a preferência
-    localStorage.setItem('app-theme', this.currentTheme);
+    this.renderer.addClass(this.document.body, this.currentTheme);
+    localStorage.setItem(STORAGE_KEY, this.currentTheme);
   }
 
   getCurrentTheme(): Theme {

@@ -1,0 +1,21 @@
+<div class="theme-picker-container" #container>
+  <button class="theme-toggle-btn glass-panel" (click)="toggleMenu()" aria-label="Mudar cor do tema">
+    <i class="ph ph-palette"></i>
+  </button>
+
+  <div class="theme-menu glass-panel" [class.open]="menuOpen" role="menu">
+    <h4>Cores do Tema</h4>
+    <div class="theme-options">
+      <button
+        *ngFor="let theme of themes; trackBy: trackById"
+        class="theme-circle"
+        role="menuitem"
+        [class.active]="currentTheme === theme.id"
+        [style.background]="theme.gradient"
+        (click)="selectTheme(theme.id)"
+        [title]="theme.name"
+        [attr.aria-label]="'Selecionar tema ' + theme.name">
+      </button>
+    </div>
+  </div>
+</div>

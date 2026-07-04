@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-
-export interface TimelineEvent {
-  year: string;
-  role: string;
-  description: string;
-}
+import { TimelineEvent } from '../models';
 
 @Injectable({
   providedIn: 'root'

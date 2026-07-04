@@ -1,0 +1,37 @@
+<section class="section about-section" id="about" aria-label="Sobre Mim">
+  <div class="container">
+    <h2 class="section-title">Sobre Mim</h2>
+
+    <div class="about-grid">
+      <div class="about-text glass-panel">
+        <p>
+          Sou <strong>Desenvolvedor Full Stack Pleno</strong>, atuando profissionalmente na área desde outubro de 2022.
+          Minha trajetória tem sido fortemente marcada pelo desenvolvimento e evolução de aplicações web corporativas,
+          com um foco muito especial no <strong>Frontend utilizando Angular</strong>.
+        </p>
+        <p>
+          No meu dia a dia, trabalho focado em construir sistemas reais e complexos. Tenho experiência profunda
+          no desenvolvimento de novas funcionalidades, evolução de sistemas legados, correção de bugs críticos em
+          produção e arquitetura de novos projetos do zero.
+        </p>
+        <p>
+          Minha abordagem prioriza a <strong>Arquitetura Frontend</strong> sólida, visando escalabilidade e
+          manutenibilidade. Aplico fortemente <strong>Boas Práticas</strong> e <strong>Clean Code</strong>,
+          garantindo que a componentização seja inteligente e reutilizável. Otimizo ativamente a <strong>Performance</strong>
+          e garanto total <strong>Responsividade</strong> para todos os dispositivos. Além disso, possuo forte
+          bagagem na integração ponta-a-ponta, consumindo APIs REST e orquestrando o frontend com backends complexos.
+        </p>
+      </div>
+
+      <div class="differentials">
+        <h3>Meus Diferenciais</h3>
+        <div class="differentials-grid">
+          <div class="differential-item" *ngFor="let diff of differentials; trackBy: trackByIndex">
+            <i class="ph-fill ph-check-circle differential-icon"></i>
+            <span>{{ diff }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+<section class="section projects-section" id="projects" aria-label="Projetos em Destaque">
+  <div class="container">
+    <h2 class="section-title">Projetos em Destaque</h2>
+
+    <div class="projects-grid">
+      <div class="project-card glass-panel" *ngFor="let project of projects; trackBy: trackById">
+        <div class="project-image">
+          <img [src]="project.image" [alt]="project.title">
+          <div class="project-overlay">
+            <div class="overlay-content">
+              <app-button variant="primary" (clicked)="openLink(project.demoUrl)">
+                <i class="ph ph-arrow-square-out"></i> Demo
+              </app-button>
+              <app-button variant="secondary" (clicked)="openLink(project.githubUrl)">
+                <i class="ph ph-github-logo"></i> GitHub
+              </app-button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-info">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-description">{{ project.description }}</p>
+
+          <div class="project-tech">
+            <span class="tech-tag" *ngFor="let tech of project.technologies; trackBy: trackByTech">{{ tech }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

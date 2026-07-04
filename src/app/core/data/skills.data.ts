@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-
-export interface Skill {
-  name: string;
-  icon: string; // Phosphor icon class, e.g., 'ph-angular-logo' or standard ones
-  description: string;
-}
+import { Skill } from '../models';
 
 @Injectable({
   providedIn: 'root'
