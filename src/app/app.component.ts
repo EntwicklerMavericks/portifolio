@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, inject } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 import { HeroComponent } from './features/hero/hero.component';
 import { AboutComponent } from './features/about/about.component';
 import { SkillsComponent } from './features/skills/skills.component';
@@ -59,4 +60,37 @@ import { ThemePickerComponent } from './shared/components/theme-picker.component
   `],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {}
+export class AppComponent implements OnInit {
+  private readonly titleService = inject(Title);
+  private readonly metaService = inject(Meta);
+
+  ngOnInit(): void {
+    // Configurações dinâmicas de SEO
+    this.titleService.setTitle('Eduardo Rodrigues Theodoro - Desenvolvedor Frontend Angular');
+    
+    this.metaService.updateTag({ 
+      name: 'description', 
+      content: 'Portfólio de Eduardo Rodrigues Theodoro, Desenvolvedor Full Stack especializado em Angular, construindo interfaces de alta performance, acessíveis e escaláveis.' 
+    });
+    
+    this.metaService.updateTag({ 
+      name: 'keywords', 
+      content: 'Angular, Frontend, Developer, Full Stack, TypeScript, JavaScript, Barueri, São Paulo' 
+    });
+    
+    this.metaService.updateTag({ 
+      property: 'og:title', 
+      content: 'Eduardo Rodrigues Theodoro - Desenvolvedor Frontend Angular' 
+    });
+    
+    this.metaService.updateTag({ 
+      property: 'og:description', 
+      content: 'Portfólio de Eduardo Rodrigues Theodoro, especializado no ecossistema Angular.' 
+    });
+    
+    this.metaService.updateTag({ 
+      property: 'og:type', 
+      content: 'website' 
+    });
+  }
+}

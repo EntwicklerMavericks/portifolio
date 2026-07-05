@@ -1,12 +1,13 @@
-import { Component, ChangeDetectionStrategy, Inject } from '@angular/core';
-import { CommonModule, DOCUMENT } from '@angular/common';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { CommonModule, DOCUMENT, NgOptimizedImage } from '@angular/common';
 import { ButtonComponent } from '../../shared/components/button.component';
 import { trigger, style, transition, animate, stagger, query } from '@angular/animations';
+import { WINDOW } from '../../core/tokens/window.token';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule, ButtonComponent],
+  imports: [CommonModule, ButtonComponent, NgOptimizedImage],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -24,7 +25,8 @@ import { trigger, style, transition, animate, stagger, query } from '@angular/an
   ]
 })
 export class HeroComponent {
-  constructor(@Inject(DOCUMENT) private readonly document: Document) {}
+  private readonly document = inject(DOCUMENT);
+  private readonly window = inject(WINDOW);
 
   scrollTo(elementId: string): void {
     const element = this.document.getElementById(elementId);
@@ -32,7 +34,7 @@ export class HeroComponent {
   }
 
   openLink(url: string): void {
-    this.document.defaultView?.open(url, '_blank');
+    this.window?.open(url, '_blank');
   }
 
   downloadCV(): void {

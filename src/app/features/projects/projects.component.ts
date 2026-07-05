@@ -1,13 +1,14 @@
-import { Component, OnInit, ChangeDetectionStrategy, Inject, inject } from '@angular/core';
-import { CommonModule, DOCUMENT } from '@angular/common';
+import { Component, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Project } from '../../core/models';
 import { ProjectsDataService } from '../../core/data/projects.data';
 import { ButtonComponent } from '../../shared/components/button.component';
+import { WINDOW } from '../../core/tokens/window.token';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, ButtonComponent],
+  imports: [CommonModule, ButtonComponent, NgOptimizedImage],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -16,8 +17,7 @@ export class ProjectsComponent implements OnInit {
   projects: Project[] = [];
 
   private readonly projectsService = inject(ProjectsDataService);
-
-  constructor(@Inject(DOCUMENT) private readonly document: Document) {}
+  private readonly window = inject(WINDOW);
 
   ngOnInit(): void {
     this.projects = this.projectsService.getProjects();
@@ -25,7 +25,7 @@ export class ProjectsComponent implements OnInit {
 
   openLink(url: string | undefined): void {
     if (url && url !== '#') {
-      this.document.defaultView?.open(url, '_blank');
+      this.window?.open(url, '_blank');
     }
   }
 

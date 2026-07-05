@@ -10,7 +10,7 @@
         *ngFor="let theme of themes; trackBy: trackById"
         class="theme-circle"
         role="menuitem"
-        [class.active]="currentTheme === theme.id"
+        [class.active]="currentTheme() === theme.id"
         [style.background]="theme.gradient"
         (click)="selectTheme(theme.id)"
         [title]="theme.name"

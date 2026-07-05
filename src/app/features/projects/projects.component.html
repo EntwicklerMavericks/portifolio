@@ -5,7 +5,7 @@
     <div class="projects-grid">
       <div class="project-card glass-panel" *ngFor="let project of projects; trackBy: trackById">
         <div class="project-image">
-          <img [src]="project.image" [alt]="project.title">
+          <img [ngSrc]="project.image" width="600" height="400" [alt]="project.title">
           <div class="project-overlay">
             <div class="overlay-content">
               <app-button variant="primary" (clicked)="openLink(project.demoUrl)">

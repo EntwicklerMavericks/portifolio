@@ -20,7 +20,9 @@ export class ThemePickerComponent {
   private readonly themeService = inject(ThemeService);
 
   menuOpen = false;
-  currentTheme: Theme = this.themeService.getCurrentTheme();
+  
+  // Ligado diretamente ao Readonly Signal do serviço
+  readonly currentTheme = this.themeService.currentTheme;
 
   @ViewChild('container') containerRef!: ElementRef;
 
@@ -37,7 +39,6 @@ export class ThemePickerComponent {
 
   selectTheme(themeId: Theme): void {
     this.themeService.setTheme(themeId);
-    this.currentTheme = themeId;
     this.menuOpen = false;
   }
 

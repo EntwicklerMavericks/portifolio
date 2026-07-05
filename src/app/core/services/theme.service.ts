@@ -1,4 +1,4 @@
-import { Injectable, Renderer2, RendererFactory2, Inject } from '@angular/core';
+import { Injectable, Renderer2, RendererFactory2, Inject, signal } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
 export type Theme = 'theme-blue' | 'theme-pink' | 'theme-orange' | 'theme-red';
@@ -12,7 +12,12 @@ const DEFAULT_THEME: Theme = 'theme-blue';
 })
 export class ThemeService {
   private readonly renderer: Renderer2;
-  private currentTheme: Theme = DEFAULT_THEME;
+  
+  // Sinal privado para controle interno de estado reativo
+  private readonly _currentTheme = signal<Theme>(DEFAULT_THEME);
+  
+  // Sinal público de apenas leitura (Readonly Signal)
+  readonly currentTheme = this._currentTheme.asReadonly();
 
   constructor(
     rendererFactory: RendererFactory2,
@@ -29,13 +34,16 @@ export class ThemeService {
   }
 
   setTheme(theme: Theme): void {
-    this.renderer.removeClass(this.document.body, this.currentTheme);
-    this.currentTheme = theme;
-    this.renderer.addClass(this.document.body, this.currentTheme);
-    localStorage.setItem(STORAGE_KEY, this.currentTheme);
-  }
-
-  getCurrentTheme(): Theme {
-    return this.currentTheme;
+    // Remove a classe do tema anterior através do valor atual do sinal
+    this.renderer.removeClass(this.document.body, this._currentTheme());
+    
+    // Atualiza o sinal reativo
+    this._currentTheme.set(theme);
+    
+    // Adiciona a classe do novo tema
+    this.renderer.addClass(this.document.body, theme);
+    
+    // Salva no localStorage
+    localStorage.setItem(STORAGE_KEY, theme);
   }
 }
