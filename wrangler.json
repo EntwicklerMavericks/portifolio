@@ -1,4 +1,7 @@
 {
   "name": "portifolio",
-  "pages_build_output_dir": "dist/portifolio/browser"
+  "compatibility_date": "2026-07-06",
+  "assets": {
+    "directory": "./dist/portifolio/browser"
+  }
 }
