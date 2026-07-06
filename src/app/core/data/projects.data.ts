@@ -13,8 +13,8 @@ export class ProjectsDataService {
         description: 'Plataforma corporativa escalável com foco em performance e experiência do usuário.',
         image: 'https://placehold.co/600x400/111827/ffffff?text=Nexa+Project',
         technologies: ['Angular', 'TypeScript', 'SCSS', 'Node.js', 'NestJS', 'PostgreSQL'],
-        demoUrl: '#',
-        githubUrl: '#'
+        demoUrl: 'https://nexa-showcase.pages.dev/login',
+        githubUrl: 'https://github.com/EntwicklerMavericks/nexa-showcase'
       },
       {
         id: 'dashboard',
