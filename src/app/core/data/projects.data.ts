@@ -26,6 +26,15 @@ export class ProjectsDataService {
         githubUrl: 'https://github.com/EntwicklerMavericks/Alicerce'
       },
       {
+        id: 'barone',
+        title: 'Barone Store',
+        description: 'E-commerce completo de moda e vestuário com renderização no servidor (SSR), catálogo dinâmico, carrinho de compras e painel administrativo.',
+        image: 'barone-cover.jpg',
+        technologies: ['Angular 20', 'SSR', 'NestJS', 'TypeScript', 'Node.js', 'Express'],
+        demoUrl: '#',
+        githubUrl: 'https://github.com/EntwicklerMavericks'
+      },
+      {
         id: 'dashboard',
         title: 'Dashboard Administrativo',
         description: 'Painel de controle gerencial com gráficos em tempo real e relatórios complexos.',
