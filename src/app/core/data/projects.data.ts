@@ -17,6 +17,15 @@ export class ProjectsDataService {
         githubUrl: 'https://github.com/EntwicklerMavericks/nexa-showcase'
       },
       {
+        id: 'alicerce',
+        title: 'Alicerce',
+        description: 'Um projeto robusto focado em estabilidade e arquitetura sólida. (Demo em breve)',
+        image: 'https://placehold.co/600x400/111827/ffffff?text=Alicerce+Project',
+        technologies: ['Angular', 'TypeScript', 'Node.js'],
+        demoUrl: '#',
+        githubUrl: 'https://github.com/EntwicklerMavericks/Alicerce'
+      },
+      {
         id: 'dashboard',
         title: 'Dashboard Administrativo',
         description: 'Painel de controle gerencial com gráficos em tempo real e relatórios complexos.',
