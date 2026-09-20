@@ -27,8 +27,8 @@ export class ProjectsDataService {
       },
       {
         id: 'barone',
-        title: 'Barone Store',
-        description: 'E-commerce completo de moda e vestuário com renderização no servidor (SSR), catálogo dinâmico, carrinho de compras e painel administrativo.',
+        title: 'Barone Imports',
+        description: 'E-commerce premium de moda e vestuário com renderização no servidor (SSR), catálogo dinâmico, carrinho de compras e painel administrativo.',
         image: 'barone-cover.jpg',
         technologies: ['Angular 20', 'SSR', 'NestJS', 'TypeScript', 'Node.js', 'Express'],
         demoUrl: '#',
