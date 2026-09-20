@@ -9,9 +9,9 @@ export class ProjectsDataService {
     return [
       {
         id: 'nexa',
-        title: 'Nexa',
-        description: 'Plataforma corporativa escalável com foco em performance e experiência do usuário.',
-        image: 'https://placehold.co/600x400/111827/ffffff?text=Nexa+Project',
+        title: 'Nexa ERP',
+        description: 'Plataforma corporativa escalável de gestão empresarial com foco em performance e experiência do usuário.',
+        image: 'nexa-cover.jpg',
         technologies: ['Angular', 'TypeScript', 'SCSS', 'Node.js', 'NestJS', 'PostgreSQL'],
         demoUrl: 'https://nexa-showcase.pages.dev/login',
         githubUrl: 'https://github.com/EntwicklerMavericks/nexa-showcase'
@@ -19,8 +19,8 @@ export class ProjectsDataService {
       {
         id: 'alicerce',
         title: 'Alicerce',
-        description: 'Um projeto robusto focado em estabilidade e arquitetura sólida. (Demo em breve)',
-        image: 'https://placehold.co/600x400/111827/ffffff?text=Alicerce+Project',
+        description: 'Plataforma de finanças baseadas em objetivos com arquitetura sólida, foco em planejamento financeiro e metas. (Demo em breve)',
+        image: 'alicerce-cover.jpg',
         technologies: ['Angular', 'TypeScript', 'Node.js'],
         demoUrl: '#',
         githubUrl: 'https://github.com/EntwicklerMavericks/Alicerce'
